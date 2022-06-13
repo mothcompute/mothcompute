@@ -4,12 +4,11 @@
 mov ax, 0x13
 int 10h
 
-push 0xA000
-pop es
-
 xor bx, bx
 mov di, bx
 mov cx, bx
+push 0xA000
+pop es
 
 l:      mov ch, 0x32
         mov al, [c+bx]
@@ -22,6 +21,5 @@ l:      mov ch, 0x32
 c:      db 11, 13, 15, 13, 11
 
 times 510-($-$$) db 0
-
 dw 0xAA55
 ```
